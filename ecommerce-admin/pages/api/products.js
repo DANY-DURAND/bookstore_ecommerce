@@ -19,7 +19,7 @@ export default async function handler(req, res) {
             }
         }
         if (method === 'POST') {
-            const { title, description, price } = req.body;
+            const { title, description, price, images} = req.body;
             if (!title || !description || !price) {
                 res.status(400).json({ message: 'Missing required fields' });
             } else {
@@ -35,9 +35,9 @@ export default async function handler(req, res) {
         if (method === 'PUT') {
             const { title, description, price, _id } = req.body;
             await Product.updateOne(
-                {_id}, 
+                { _id },
                 {
-                    title: title, 
+                    title: title,
                     description: description,
                     price: price,
                 });
@@ -46,10 +46,10 @@ export default async function handler(req, res) {
 
         if (method === 'DELETE') {
             if (req.query?.id) {
-              await Product.deleteOne({_id:req.query?.id});
-              res.json(true);
+                await Product.deleteOne({ _id: req.query?.id });
+                res.json(true);
             }
-          }
+        }
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: 'Internal server error' });
