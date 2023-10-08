@@ -10,7 +10,9 @@
   },
   "dependencies": {
     "@auth/mongodb-adapter": "^2.0.0",
+    "@aws-sdk/client-s3": "^3.425.0",
     "axios": "^1.5.1",
+    "mime-types": "^2.1.35",
     "mongodb": "^6.1.0",
     "mongoose": "^7.5.3",
     "multiparty": "^4.2.3",
